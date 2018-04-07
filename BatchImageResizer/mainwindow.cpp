@@ -156,7 +156,7 @@ int MainWindow::convertImages(ConvertMode mode, int v0, int v1, const QVector<QS
                 scaledHeight = (int)v1;
             }
 
-            QImage scaledImg = image.scaled(scaledWidth, scaledHeight, Qt::KeepAspectRatio);
+            QImage scaledImg = image.scaled(scaledWidth, scaledHeight, Qt::KeepAspectRatio, Qt::TransformationMode::SmoothTransformation);
 
             QImageWriter writer(path);
             if (writer.canWrite() && writer.write(scaledImg))
@@ -239,7 +239,7 @@ void MainWindow::on_actionOpen_triggered()
     }
 }
 
-const QString STR_ABOUT = "Batch Image Resizer\nVersion: 1.0.0\nCopyright 2018 sindney. All rights reserved.";
+const QString STR_ABOUT = "Batch Image Resizer\nVersion: 1.0.1\nCopyright 2018 sindney. All rights reserved.";
 
 void MainWindow::on_actionAbout_triggered()
 {
